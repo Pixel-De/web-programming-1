@@ -26,6 +26,7 @@ class Example extends React.Component {
       counter: 0,
       inputValue: '',
       buttonWasClicked: '',
+      mottoValue: window.cs142models.exampleModel().motto
     };
 
     // React events are called directly from DOM event handlers
@@ -102,8 +103,19 @@ class Example extends React.Component {
       <div className="container Example">
         <h1>CS142 Project#4 React.js Example</h1>
 
+        <div className="cs142-example-output">
+          <label htmlFor="inId">New Motto:</label>
+          <input
+            id="inId"
+            type="text"
+            value={this.state.mottoValue}
+            onChange={this.handleChangeBound}
+            maxLength="20"
+          />
+        </div>
         <div className="motto-update">
-          {/* Your problem #1 motto displaying and updating widget goes here */}
+          <div className="name">{this.state.name}</div>
+          <div className="motto">{this.state.mottoValue}</div>
         </div>
 
         <p>
