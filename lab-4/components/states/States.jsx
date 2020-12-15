@@ -10,12 +10,16 @@ class States extends React.Component {
   constructor(props) {
     super(props);
     console.log('window.cs142models.statesModel()', window.cs142models.statesModel());
+    this.state = {
+      states: window.cs142models.statesModel(),
+      inputValue: ""
+    }
   }
 
   render() {
     return (
       <div>
-        Replace this with the code for CS142 Project #4, Problem #2
+        <Label></Label>
       </div>
     );
   }

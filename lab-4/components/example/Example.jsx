@@ -24,9 +24,8 @@ class Example extends React.Component {
     this.state = {
       name: window.cs142models.exampleModel().name,
       counter: 0,
-      inputValue: '',
+      inputValue: window.cs142models.exampleModel().motto,
       buttonWasClicked: '',
-      mottoValue: window.cs142models.exampleModel().motto
     };
 
     // React events are called directly from DOM event handlers
@@ -108,14 +107,14 @@ class Example extends React.Component {
           <input
             id="inId"
             type="text"
-            value={this.state.mottoValue}
+            value={this.state.inputValue}
             onChange={this.handleChangeBound}
             maxLength="20"
           />
         </div>
         <div className="motto-update">
           <div className="name">{this.state.name}</div>
-          <div className="motto">{this.state.mottoValue}</div>
+          <div className="motto">{this.state.inputValue}</div>
         </div>
 
         <p>

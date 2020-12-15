@@ -17,7 +17,7 @@ if (cs142models === undefined) {
 cs142models.exampleModel = function() {
    return {
       name: 'Munkhamgalan',
-      mott: 'My motto!'
+      motto: 'My motto!'
    };
 };
 
