@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './styles/main.css';
 
 import States from './components/states/States';
 
