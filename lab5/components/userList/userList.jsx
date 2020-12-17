@@ -1,14 +1,16 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 import {
+  Checkbox,
   Divider,
   List,
   ListItem,
   ListItemText,
   Typography,
-}
-from '@material-ui/core';
-import './userList.css';
+} from "@material-ui/core";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+import "./userList.css";
 
 /**
  * Define UserList, a React componment of CS142 project #5
@@ -17,38 +19,49 @@ class UserList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      List:[]
-    }
+      data: [],
+    };
   }
   componentDidMount() {
-    fetch('/user/list').then(response => response.json()).then(data => this.setState({
-      List: data
-    }));
+    fetch("user/list")
+      .then((res) => res.json())
+      .then((data) => this.setState({ data: data }));
   }
   render() {
+    let data = this.state.data;
     return (
       <div>
-        <Typography variant="body1">
-          Friend List (Fake Cool Friends)
+        <Link to="/">
+          <Typography variant="h6" style={{ marginBottom: "20px" }}>
+            HOME
+          </Typography>
+        </Link>
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={this.props.isEz}
+                onChange={this.props.ezPhotosChanger}
+                color="primary"
+              />
+            }
+            label="Зургаа гоёор харах"
+          />
+        </FormGroup>
+        <Typography variant="body1" style={{ marginTop: "10px" }}>
+          USERS:
         </Typography>
-        <List component="nav">{
-          this.state.List.map((el, ind) => {
+        <List component="nav">
+          {data.map((el, ind) => {
             return (
               <Link key={ind} to={`/users/${el._id}`}>
                 <ListItem>
-                  <ListItemText primary={`${el.first_name} ${el.last_name}`} />
+                  <ListItemText primary={el.first_name} />
                 </ListItem>
-                <Divider/>
               </Link>
-            )
-          })
-        }
+            );
+          })}
         </List>
-        <Typography variant="body1">
-          <Link to="/users">
-            See All Users
-          </Link>
-        </Typography>
       </div>
     );
   }

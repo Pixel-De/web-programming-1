@@ -7,9 +7,7 @@
   "scripts": {
     "build": "node_modules/.bin/webpack -d",
     "build:w": "node_modules/.bin/webpack -d --watch",
-    "lint": "node_modules/.bin/eslint *.jsx components/*/*.jsx lib/*.js",
-    "startb": "start /B node webServer.js",
-    "stopb": "taskkill /IM node.exe /F"
+    "lint": "node_modules/.bin/eslint *.jsx components/*/*.jsx lib/*.js"
   },
   "author": "Mendel Rosenblum <mendel@cs.stanford.edu> ",
   "license": "ISC",
